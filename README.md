@@ -146,4 +146,6 @@ python fixitup_alert.py
 
 Utilise [Tesseract](https://github.com/tesseract-ocr/tesseract) (Apache 2.0), customtkinter, mss, OpenCV, numpy et Pillow.
 
+virustotal : https://www.virustotal.com/gui/file/443b046eee612c6afe7adf327de10815338fd2f53cee46cbff20aac2f41bec8a?nocache=1
+
 Projet non affilié à Roblox ni aux créateurs de Fix It Up.
