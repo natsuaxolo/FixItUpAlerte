@@ -1,50 +1,47 @@
-# Fix It Up – Alerte voiture rare
+# Fix It Up – Rare car alert
 
-Petit logiciel Windows qui surveille le chat du jeu Roblox **Fix It Up** et te prévient (popup + alarme) quand une voiture rare spawn au junkyard.
+Small Windows software that monitors the chat of the game Roblox **Fix It Up** and warns you (popup + alarm) when a rare car spawns at the junkyard.
 
-Il lit uniquement l'écran (capture + OCR). Il ne touche pas au jeu.
+It only reads the screen (capture + OCR). He doesn't touch the game.
 
-## Téléchargement
+## Download
 
-Va dans l'onglet **Releases** de ce dépôt et télécharge `FixItUpAlerte_Setup.exe`, puis lance-le.
+Go to the **Releases** tab of this repository and download `FixItUpAlerte_Setup.exe`, then launch it.
 
-> Windows peut afficher « Windows a protégé votre ordinateur » (l'application n'est pas signée).
-> Clique sur **Informations complémentaires**, puis **Exécuter quand même**.
+> Windows can display "Windows has protected your computer" (the application is not signed).
 
-## Utilisation
+> Click on **Additional information**, then **Run anyway**.
 
-1. Lance Roblox en **fenêtré** ou **plein écran fenêtré**.
-2. Clique sur **Sélectionner la zone** et dessine un rectangle sur le chat.
-3. Règle le curseur : l'alerte se déclenche si la rareté est **inférieure ou égale** au pourcentage choisi (de 10 % à 0,001 %).
-4. Clique sur **Lancer**. Pour arrêter, clique sur **Éteindre**.
-5. Quand une voiture correspond : popup avec le nom et le pourcentage, alarme en boucle, bouton **Fermer** (ou Échap / Entrée).
+## Use
 
-Le bouton **Tester l'alarme** permet de vérifier le son et le popup. La zone du bas affiche l'historique des voitures détectées. Le bouton **Voir le texte lu** montre ce que l'appli lit à l'écran, pratique si la lecture ne fonctionne pas bien.
+1. Launch Roblox in **windowed** or **full screen window**.
 
-## Changer le son de l'alarme
+2. Click on **Select area** and draw a rectangle on the chat.
 
-- Dépose un fichier dont le nom commence par **alarme** (`alarme.wav` ou `alarme.mp3`) dans le dossier de l'appli, à côté de `FixItUpAlerte.exe`. Il est joué en boucle jusqu'à la fermeture du popup.
-- L'appli indique sous le bouton **Tester l'alarme** quel son elle utilise, ou pourquoi elle n'a pas pu le lire.
-- Sans fichier, l'appli joue des bips. Ils se règlent avec `ALARM_BEEPS` en haut de `fixitup_alert.py`.
-- Volume : `ALARM_VOLUME` (0 à 100). Son Windows : `ALARM_FILE = r"C:\Windows\Media\Alarm05.wav"`.
+3. Adjust the cursor: the alert is triggered if the rarity is **less than or equal to** the chosen percentage (from 10% to 0.001%).
 
-## Lancer depuis le code source
+4. Click on **Launch**. To stop, click on **Turn off**.
 
-Prérequis : Python 3.11 ou 3.12 et [Tesseract OCR](https://github.com/UB-Mannheim/tesseract/wiki).
+5. When a car matches: popup with the name and percentage, loop alarm, **Close** button (or Escape / Enter).
 
-```
-pip install -r requirements.txt
-python fixitup_alert.py
-```
+The **Test alarm** button allows you to check the sound and popup. The bottom area displays the history of detected cars. The **See text read** button shows what the app reads on the screen, handy if playback doesn't work well.
 
-## Créer l'exe soi-même
+## Change the alarm sound
 
-1. Installe Python, Tesseract et [Inno Setup](https://jrsoftware.org/isdl.php).
-2. Lance `build.bat` : il crée `dist\FixItUpAlerte\FixItUpAlerte.exe`.
-3. Ouvre `installer.iss` dans Inno Setup et compile (Ctrl+F9) : l'installeur est créé dans `installer_output`.
+- Drops a file whose name begins with **alarm** (`alarme.wav` or `alarme.mp3`) in the app folder, next to `FixItUpAlerte.exe`. It is played in a loop until the pop-up is closed.
+
+- The app indicates under the button **Test the alarm** what sound it uses, or why it could not read it.
+
+- Without a file, the app plays beeps. They are settled with `ALARM_BEEPS` at the top of `fixitup_alert.py`.
+
+- Volume: `ALARM_VOLUME` (0 to 100). Windows Sound: `ALARM_FILE = r"C:\Windows\Media\Alarm05.wav"`.
+
+## Launch from the source code
+
+3. Open `installer.iss` in Inno Setup and compile (Ctrl+F9): the installer is created in `installer_output`.
 
 ## Licences
 
-Utilise [Tesseract](https://github.com/tesseract-ocr/tesseract) (Apache 2.0), customtkinter, mss, OpenCV et numpy.
+use [Tesseract](https://github.com/tesseract-ocr/tesseract) (Apache 2.0), customtkinter, mss, OpenCV et numpy.
 
-Projet non affilié à Roblox ni aux créateurs de Fix It Up.
+Project not affiliated with Roblox or the creators of Fix It Up.
