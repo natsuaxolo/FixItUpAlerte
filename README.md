@@ -10,7 +10,8 @@ Go to the **Releases** tab of this repository, download `FixItUpAlerte_Setup.exe
 
 > Windows may show "Windows protected your PC" (the app is not code-signed).
 > Click **More info**, then **Run anyway**.
-
+ virutotal : https://www.virustotal.com/gui/file/ce92111e57ea8ec2664f8355fe25c7094a42ebb3677c2972650846e10d40f8ad/detection
+> 
 ## Usage
 
 1. Run Roblox in **windowed** or **borderless fullscreen** mode.
