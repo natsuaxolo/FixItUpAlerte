@@ -1,47 +1,50 @@
-# Fix It Up – Rare car alert
+# Fix It Up – Rare Car Alert
 
-Small Windows software that monitors the chat of the game Roblox **Fix It Up** and warns you (popup + alarm) when a rare car spawns at the junkyard.
+A small Windows tool that watches the chat of the Roblox game **Fix It Up** and alerts you (popup + alarm) when a rare car spawns at the junkyard.
 
-It only reads the screen (capture + OCR). He doesn't touch the game.
+It only reads your screen (screen capture + OCR). It does not touch the game.
 
 ## Download
 
-Go to the **Releases** tab of this repository and download `FixItUpAlerte_Setup.exe`, then launch it.
+Go to the **Releases** tab of this repository, download `FixItUpAlerte_Setup.exe` and run it.
 
-> Windows can display "Windows has protected your computer" (the application is not signed).
+> Windows may show "Windows protected your PC" (the app is not code-signed).
+> Click **More info**, then **Run anyway**.
 
-> Click on **Additional information**, then **Run anyway**.
+## Usage
 
-## Use
+1. Run Roblox in **windowed** or **borderless fullscreen** mode.
+2. Click **Sélectionner la zone** (select area) and draw a rectangle over the chat.
+3. Set the slider: the alert triggers when the rarity is **lower than or equal to** the chosen percentage (from 10% down to 0.001%).
+4. Click **Lancer** (start). To stop, click **Éteindre** (turn off).
+5. When a matching car spawns: a popup shows the car name and percentage, the alarm loops, and you can close it with the **Fermer** button (or Esc / Enter).
 
-1. Launch Roblox in **windowed** or **full screen window**.
+The **Tester l'alarme** button lets you check the sound and the popup. The box at the bottom shows the history of detected cars. The **Voir le texte lu** button shows what the app reads on your screen, which is useful if the reading does not work well.
 
-2. Click on **Select area** and draw a rectangle on the chat.
+## Changing the alarm sound
 
-3. Adjust the cursor: the alert is triggered if the rarity is **less than or equal to** the chosen percentage (from 10% to 0.001%).
+- Put a file whose name starts with **alarme** (`alarme.wav` or `alarme.mp3`) in the app folder, next to `FixItUpAlerte.exe`. It plays in a loop until the popup is closed.
+- The app displays under the **Tester l'alarme** button which sound it is using, or why it could not play it.
+- Without a file, the app plays beeps. You can adjust them with `ALARM_BEEPS` at the top of `fixitup_alert.py`.
+- Volume: `ALARM_VOLUME` (0 to 100). Windows sound: `ALARM_FILE = r"C:\Windows\Media\Alarm05.wav"`.
 
-4. Click on **Launch**. To stop, click on **Turn off**.
+## Run from source
 
-5. When a car matches: popup with the name and percentage, loop alarm, **Close** button (or Escape / Enter).
+Requirements: Python 3.11 or 3.12 and [Tesseract OCR](https://github.com/UB-Mannheim/tesseract/wiki).
 
-The **Test alarm** button allows you to check the sound and popup. The bottom area displays the history of detected cars. The **See text read** button shows what the app reads on the screen, handy if playback doesn't work well.
+```
+pip install -r requirements.txt
+python fixitup_alert.py
+```
 
-## Change the alarm sound
+## Build the exe yourself
 
-- Drops a file whose name begins with **alarm** (`alarme.wav` or `alarme.mp3`) in the app folder, next to `FixItUpAlerte.exe`. It is played in a loop until the pop-up is closed.
-
-- The app indicates under the button **Test the alarm** what sound it uses, or why it could not read it.
-
-- Without a file, the app plays beeps. They are settled with `ALARM_BEEPS` at the top of `fixitup_alert.py`.
-
-- Volume: `ALARM_VOLUME` (0 to 100). Windows Sound: `ALARM_FILE = r"C:\Windows\Media\Alarm05.wav"`.
-
-## Launch from the source code
-
+1. Install Python, Tesseract and [Inno Setup](https://jrsoftware.org/isdl.php).
+2. Run `build.bat`: it creates `dist\FixItUpAlerte\FixItUpAlerte.exe`.
 3. Open `installer.iss` in Inno Setup and compile (Ctrl+F9): the installer is created in `installer_output`.
 
-## Licences
+## Licenses
 
-use [Tesseract](https://github.com/tesseract-ocr/tesseract) (Apache 2.0), customtkinter, mss, OpenCV et numpy.
+Uses [Tesseract](https://github.com/tesseract-ocr/tesseract) (Apache 2.0), customtkinter, mss, OpenCV and numpy.
 
-Project not affiliated with Roblox or the creators of Fix It Up.
+This project is not affiliated with Roblox or the creators of Fix It Up.
