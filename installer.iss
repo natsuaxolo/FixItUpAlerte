@@ -3,7 +3,7 @@
 
 [Setup]
 AppName=Fix It Up Alerte
-AppVersion=1.3
+AppVersion=1.5
 AppPublisher=Nathan
 DefaultDirName={autopf}\FixItUpAlerte
 DefaultGroupName=Fix It Up Alerte
@@ -15,6 +15,7 @@ PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 UninstallDisplayIcon={app}\FixItUpAlerte.exe
 WizardStyle=modern
+SetupIconFile=logo.ico
 
 [Languages]
 Name: "french"; MessagesFile: "compiler:Languages\French.isl"
@@ -26,6 +27,8 @@ Name: "desktopicon"; Description: "Créer un raccourci sur le bureau"; GroupDesc
 Source: "dist\FixItUpAlerte\*"; DestDir: "{app}"; Flags: recursesubdirs createallsubdirs ignoreversion
 ; Son d'alarme personnalise (optionnel) : mets un fichier alarme.wav ou alarme.mp3 dans le dossier du projet
 Source: "alarme.*"; DestDir: "{app}"; Flags: skipifsourcedoesntexist
+; Liste de voitures personnalisee (optionnel) : cars.txt dans le dossier du projet
+Source: "cars.txt"; DestDir: "{app}"; Flags: skipifsourcedoesntexist
 
 [Icons]
 Name: "{group}\Fix It Up Alerte"; Filename: "{app}\FixItUpAlerte.exe"

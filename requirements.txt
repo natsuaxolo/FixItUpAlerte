@@ -3,3 +3,4 @@ mss
 opencv-python
 numpy
 pytesseract
+pillow
